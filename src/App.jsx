@@ -493,20 +493,20 @@ const App = () => {
                 </div>
                 <div className="bg-[#1e1b4b]/50 p-5 rounded-2xl border border-white/5">
                   <span className="block text-xs text-indigo-300 mb-1">Location</span>
-                  <span className="font-semibold text-sm">Cavite, Philippines</span>
+                  <span className="font-semibold text-sm">Imus City, Cavite, Philippines</span>
                 </div>
               </div>
               
               <div>
                 <span className="block text-xs text-indigo-300 mb-4">Follow me on social media:</span>
                 <div className="flex flex-wrap gap-3">
-                   <a href="#" className="w-10 h-10 rounded-full bg-[#1e1b4b]/80 flex items-center justify-center hover:bg-indigo-500 transition-colors border border-white/5">
+                   <a href="https://www.facebook.com/clinton.malicdon.2024" className="w-10 h-10 rounded-full bg-[#1e1b4b]/80 flex items-center justify-center hover:bg-indigo-500 transition-colors border border-white/5">
                       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
                    </a>
-                   <a href="#" className="w-10 h-10 rounded-full bg-[#1e1b4b]/80 flex items-center justify-center hover:bg-indigo-500 transition-colors border border-white/5">
+                   <a href="https://www.instagram.com/pesho.arvie/" className="w-10 h-10 rounded-full bg-[#1e1b4b]/80 flex items-center justify-center hover:bg-indigo-500 transition-colors border border-white/5">
                       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
                    </a>
-                   <a href="#" className="w-10 h-10 rounded-full bg-[#1e1b4b]/80 flex items-center justify-center hover:bg-indigo-500 transition-colors border border-white/5">
+                   <a href="https://www.linkedin.com/in/clinton-malicdon-000995313/" className="w-10 h-10 rounded-full bg-[#1e1b4b]/80 flex items-center justify-center hover:bg-indigo-500 transition-colors border border-white/5">
                       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
                    </a>
                 </div>
