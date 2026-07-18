@@ -310,12 +310,8 @@ const App = () => {
               <h4 className="text-4xl font-black tracking-tight mb-10 uppercase">Education</h4>
             </div>
             
-            {/* TIMELINE DESIGN WITH TOP-ALIGNED NODE DOTS */}
             <div className="relative border-l-2 border-slate-700 ml-4 md:ml-8 space-y-12">
-              
-              {/* Item 1 */}
               <div className="relative pl-8 md:pl-12 w-full flex flex-col items-center text-center">
-                {/* Fixed position to align directly with the first line text title */}
                 <div className="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-blue-500 shadow-[0_0_12px_rgba(59,130,246,0.8)] border-2 border-[#0b1120]"></div>
                 
                 <h5 className="text-xl font-bold text-white tracking-wide">BS in Information Technology</h5>
@@ -329,9 +325,7 @@ const App = () => {
                 </p>
               </div>
               
-              {/* Item 2 */}
               <div className="relative pl-8 md:pl-12 w-full flex flex-col items-center text-center">
-                {/* Fixed position to align directly with the first line text title */}
                 <div className="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-blue-500 shadow-[0_0_12px_rgba(59,130,246,0.8)] border-2 border-[#0b1120]"></div>
                 
                 <h5 className="text-xl font-bold text-white tracking-wide">Senior High School - ICT</h5>
@@ -341,7 +335,6 @@ const App = () => {
                   <span className="text-white font-bold">Coursework:</span> Programming Strand | Software Development Fundamentals.
                 </p>
               </div>
-
             </div>
           </div>
 
@@ -493,17 +486,17 @@ const App = () => {
                 </div>
                 <div className="bg-[#1e1b4b]/50 p-5 rounded-2xl border border-white/5">
                   <span className="block text-xs text-indigo-300 mb-1">Location</span>
-                  <span className="font-semibold text-sm">Imus City, Cavite, Philippines</span>
+                  <span className="font-semibold text-sm">Cavite, Philippines</span>
                 </div>
               </div>
               
               <div>
                 <span className="block text-xs text-indigo-300 mb-4">Follow me on social media:</span>
                 <div className="flex flex-wrap gap-3">
-                   <a href="https://www.facebook.com/clinton.malicdon.2024" className="w-10 h-10 rounded-full bg-[#1e1b4b]/80 flex items-center justify-center hover:bg-indigo-500 transition-colors border border-white/5">
+                   <a href="#https://www.facebook.com/clinton.malicdon.2024" className="w-10 h-10 rounded-full bg-[#1e1b4b]/80 flex items-center justify-center hover:bg-indigo-500 transition-colors border border-white/5">
                       <svg xmlns="https://www.facebook.com/clinton.malicdon.2024" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
                    </a>
-                   <a href="https://www.instagram.com/pesho.arvie/" className="w-10 h-10 rounded-full bg-[#1e1b4b]/80 flex items-center justify-center hover:bg-indigo-500 transition-colors border border-white/5">
+                   <a href="#https://www.instagram.com/pesho.arvie/" className="w-10 h-10 rounded-full bg-[#1e1b4b]/80 flex items-center justify-center hover:bg-indigo-500 transition-colors border border-white/5">
                       <svg xmlns="https://www.instagram.com/pesho.arvie/" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
                    </a>
                    <a href="https://www.linkedin.com/in/clinton-malicdon-000995313/" className="w-10 h-10 rounded-full bg-[#1e1b4b]/80 flex items-center justify-center hover:bg-indigo-500 transition-colors border border-white/5">
@@ -545,16 +538,19 @@ const App = () => {
         </div>
       </section>
 
-      {/* Lightbox Overlay */}
+      {/* FIXED Lightbox Overlay */}
       {lightboxData && (
         <div className="fixed inset-0 bg-gray-950/98 backdrop-blur-md z-50 flex items-center justify-center p-4 md:p-8" onClick={() => setLightboxData(null)}>
-          <div className="bg-[#0d1527] border border-slate-800 rounded-2xl overflow-hidden shadow-2xl flex flex-col md:grid md:grid-cols-12 max-w-4xl w-full max-h-[90vh] relative" onClick={(e) => e.stopPropagation()}>
+          <div className="bg-[#0d1527] border border-slate-800 rounded-2xl overflow-hidden shadow-2xl flex flex-col md:grid md:grid-cols-12 max-w-5xl w-full max-h-[90vh] relative" onClick={(e) => e.stopPropagation()}>
             <button className="absolute top-4 right-4 bg-white/10 hover:bg-white/20 text-white rounded-full p-2 transition-colors z-50 shadow-md" onClick={() => setLightboxData(null)}>
               <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
             </button>
-            <div className="md:col-span-7 bg-black flex items-center justify-center relative min-h-[260px] md:h-full">
-              <img src={lightboxData.src} alt="Expanded display" className="w-full h-full object-cover md:max-h-[75vh]" />
+            
+            {/* Swapped object-cover to object-contain, added padding, and allowed the height to breathe */}
+            <div className="md:col-span-7 bg-black flex items-center justify-center relative min-h-[300px] md:min-h-[500px] p-4">
+              <img src={lightboxData.src} alt="Expanded display" className="w-full h-full object-contain max-h-[40vh] md:max-h-[80vh]" />
             </div>
+            
             <div className="md:col-span-5 p-8 flex flex-col justify-center text-center bg-[#0d1527] border-t md:border-t-0 md:border-l border-slate-800 text-white overflow-y-auto">
               {lightboxData.quote ? (
                 <>
