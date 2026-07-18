@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 
+
 const App = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [lightboxData, setLightboxData] = useState(null);
@@ -79,7 +80,7 @@ const App = () => {
   // 2nd Category: Client Photography (9 Items total matching your exact list)
   const clientPhotos = [
     {
-      src: "/client1.jpg",
+      src="/clinton-portfolio1/client1.jpg",
       quote: "Love enduring through the ages.",
       inFrame: "Ramos Family",
       photoBy: "Clinton Malicdon",
@@ -238,7 +239,7 @@ const App = () => {
               <div className="absolute inset-0 bg-blue-600 translate-x-4 translate-y-4 rounded-2xl"></div>
               <div className="absolute inset-0 bg-gray-200 rounded-2xl overflow-hidden shadow-xl border-4 border-white">
                 <img 
-                  src="/profile.jpg" 
+                  src="./profile.jpg"
                   alt="Clinton B. Malicdon" 
                   className="w-full h-full object-cover"
                 />
