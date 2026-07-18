@@ -18,7 +18,7 @@ const App = () => {
   // 1st Category: Personal Photography (9 Items total, last 3 are coming soon)
   const personalPhotos = [
     {
-      src: "/photo2.jpg",
+      src: "/clinton-portfolio1/photo2.jpg",
       quote: "LATINA - Al James",
       inFrame: "Mavi Jamen & Jomer Vincent Salamat",
       photoBy: "Clinton Malicdon",
@@ -27,7 +27,7 @@ const App = () => {
       facebookLink: "https://www.facebook.com/share/p/1FiTqA7axd/"
     },
     {
-      src: "/photo1.jpg",
+      src: "/clinton-portfolio1/photo1.jpg",
       quote: "An Art Gallery Could Never Be As Unique As You - mrld",
       inFrame: "Xenalyn Belencio",
       photoBy: "Clinton Malicdon",
@@ -36,7 +36,7 @@ const App = () => {
       facebookLink: "https://www.facebook.com/share/p/1CVTMTmjR9/"
     },
     {
-      src: "/photo3.jpg", 
+      src: "/clinton-portfolio1/photo3.jpg", 
       quote: "Hey Barbara - IV OF SPADES",
       inFrame: "Chrislynne Salas",
       photoBy: "Clinton Malicdon",
@@ -45,7 +45,7 @@ const App = () => {
       facebookLink: "https://www.facebook.com/share/p/1CY1ZkZMTZ/"
     }, 
     {
-      src: "/photo4.jpg", 
+      src: "/clinton-portfolio1/photo4.jpg", 
       quote: "In My Prison - IV OF SPADES",
       inFrame: "N/A",
       photoBy: "Clinton Malicdon",
@@ -54,7 +54,7 @@ const App = () => {
       facebookLink: "https://www.facebook.com/share/p/1J7dS2xm8u/"
     }, 
     {
-      src: "/photo6.jpg", 
+      src: "/clinton-portfolio1/photo6.jpg", 
       quote: "10. Scenery",
       inFrame: "Nicole Caratihan",
       photoBy: "Clinton Malicdon",
@@ -63,7 +63,7 @@ const App = () => {
       facebookLink: "https://www.facebook.com/share/p/18ws5vweMV/"
     },
     {
-      src: "/photo5.jpg", 
+      src: "/clinton-portfolio1/photo5.jpg", 
       quote: "Monster - IV OF SPADES",
       inFrame: "N/A",
       photoBy: "Clinton Malicdon",
@@ -80,7 +80,7 @@ const App = () => {
   // 2nd Category: Client Photography (9 Items total matching your exact list)
   const clientPhotos = [
     {
-      src="/clinton-portfolio1/client1.jpg",
+      src: "/clinton-portfolio1/client1.jpg",
       quote: "Love enduring through the ages.",
       inFrame: "Ramos Family",
       photoBy: "Clinton Malicdon",
@@ -88,7 +88,7 @@ const App = () => {
       event: "Wedding"
     },
     {
-      src: "/client2.jpg",
+      src: "/clinton-portfolio1/client2.jpg",
       quote: "Bringing fictional worlds into crystal clear reality.",
       inFrame: "Kyla Barnickel",
       photoBy: "Clinton Malicdon",
@@ -96,7 +96,7 @@ const App = () => {
       event: "Project COS",
     },
     {
-      src: "/client3.jpg",
+      src: "/clinton-portfolio1/client3.jpg",
       quote: "Visual journalism and deep storytelling within the community.",
       inFrame: "N/A",
       photoBy: "Clinton Malicdon",
@@ -105,7 +105,7 @@ const App = () => {
   
     },
     {
-      src: "/client4.jpg",
+      src: "/clinton-portfolio1/client4.jpg",
       quote: "Celebrating a milestone diamond jubilee of wonderful life.",
       inFrame: "Celebrant Family",
       photoBy: "Clinton Malicdon",
@@ -113,7 +113,7 @@ const App = () => {
       event: "60th Birthday Celebration",
     },
     {
-      src: "/client5.jpg",
+      src: "/clinton-portfolio1/client5.jpg",
       quote: "Stepping gracefully into adulthood and new chapters.",
       inFrame: "Debutante",
       photoBy: "Clinton Malicdon",
@@ -122,7 +122,7 @@ const App = () => {
 
     },
     {
-      src: "/client6.JPG",
+      src: "/clinton-portfolio1/client6.JPG",
       quote: "Welcoming new light and spiritual beginnings.",
       inFrame: "Baby & Godparents",
       photoBy: "Clinton Malicdon",
@@ -131,7 +131,7 @@ const App = () => {
 
     },
     {
-      src: "/client7.jpg",
+      src: "/clinton-portfolio1/client7.jpg",
       quote: "Cherished milestones and family blessings.",
       inFrame: "Domingunez Family",
       photoBy: "Clinton Malicdon",
@@ -140,7 +140,7 @@ const App = () => {
 
     },
     {
-      src: "/client8.png",
+      src: "/clinton-portfolio1/client8.png",
       quote: "High energy capture, frozen action, and intense athletic spirit.",
       inFrame: "Company Athletes",
       photoBy: "Clinton Malicdon",
@@ -149,7 +149,7 @@ const App = () => {
 
     },
     {
-      src: "/client9.jpg",
+      src: "/clinton-portfolio1/client9.jpg",
       quote: "A glamorous night full of youth, elegance, and memories.",
       inFrame: "Julieanne Sugordiano Sappari",
       photoBy: "Clinton Malicdon",
@@ -238,8 +238,7 @@ const App = () => {
             <div className="relative w-full max-w-[360px] md:max-w-none aspect-[4/5]">
               <div className="absolute inset-0 bg-blue-600 translate-x-4 translate-y-4 rounded-2xl"></div>
               <div className="absolute inset-0 bg-gray-200 rounded-2xl overflow-hidden shadow-xl border-4 border-white">
-                <img 
-                  src="./profile.jpg"
+                <img src="/clinton-portfolio1/profile.jpg" 
                   alt="Clinton B. Malicdon" 
                   className="w-full h-full object-cover"
                 />
