@@ -23,6 +23,7 @@ const App = () => {
       photoBy: "Clinton Malicdon",
       camera: "Fujifilm X-A3 | ISO 320 | F/5.3",
       event: "Photoshoot for CAF 2024",
+      facebookLink: "https://www.facebook.com/share/p/1FiTqA7axd/"
     },
     {
       src: "/clinton-portfolio1/photo1.jpg",
@@ -31,6 +32,7 @@ const App = () => {
       photoBy: "Clinton Malicdon",
       camera: "Nikon | Kitlens 18-55mm",
       event: "CULTURE AND THE ARTS FESTIVAL",
+      facebookLink: "https://www.facebook.com/share/p/1CVTMTmjR9/"
     },
     {
       src: "/clinton-portfolio1/photo3.jpg", 
@@ -39,6 +41,7 @@ const App = () => {
       photoBy: "Clinton Malicdon",
       camera: "Nikon | Sigma 70-300mm | ISO 800 | F/5.6",
       event: "PROJECT Zoldyck",
+      facebookLink: "https://www.facebook.com/share/p/1CY1ZkZMTZ/"
     }, 
     {
       src: "/clinton-portfolio1/photo4.jpg", 
@@ -47,6 +50,7 @@ const App = () => {
       photoBy: "Clinton Malicdon",
       camera: "Nikon | Nikkor 50mm | ISO 400 | F/2.8",
       event: "Battle of the Bands @CvSU - Imus Campus | Part I",
+      facebookLink: "https://www.facebook.com/share/p/1J7dS2xm8u/"
     }, 
     {
       src: "/clinton-portfolio1/photo6.jpg", 
@@ -55,6 +59,7 @@ const App = () => {
       photoBy: "Clinton Malicdon",
       camera: "Nikon | Tamron 70-300mm & Prime Lens 17-50mm | ISO 800 | 1/100s | F/5.6",
       event: "Local Culture and Arts Festival | Central Student Government - Imus Campus",
+      facebookLink: "https://www.facebook.com/share/p/18ws5vweMV/"
     },
     {
       src: "/clinton-portfolio1/photo5.jpg", 
@@ -63,6 +68,7 @@ const App = () => {
       photoBy: "Clinton Malicdon",
       camera: "Tecno Pova 7",
       event: "Battle of The Bands @Cavite State University - Imus Campus",
+      facebookLink: "https://www.facebook.com/share/p/1BWCunuzoB/"
     },
     { isComingSoon: true },
     { isComingSoon: true },
@@ -76,7 +82,8 @@ const App = () => {
       inFrame: "Ramos Family",
       photoBy: "Clinton Malicdon",
       camera: "Nikon | Kitlens 18-55mm",
-      event: "Wedding"
+      event: "Wedding",
+      facebookLink: "https://www.facebook.com/"
     },
     {
       src: "/clinton-portfolio1/client2.jpg",
@@ -85,6 +92,7 @@ const App = () => {
       photoBy: "Clinton Malicdon",
       camera: "Nikon | Kitlens 18-55mm",
       event: "Project COS",
+      facebookLink: "https://www.facebook.com/"
     },
     {
       src: "/clinton-portfolio1/client3.jpg",
@@ -93,6 +101,7 @@ const App = () => {
       photoBy: "Clinton Malicdon",
       camera: "Nikon | Kitlens 18-55mm",
       event: "Photo Essay",
+      facebookLink: "https://www.facebook.com/"
     },
     {
       src: "/clinton-portfolio1/client4.jpg",
@@ -101,6 +110,7 @@ const App = () => {
       photoBy: "Clinton Malicdon",
       camera: "Nikon | Kitlens 18-55mm",
       event: "60th Birthday Celebration",
+      facebookLink: "https://www.facebook.com/"
     },
     {
       src: "/clinton-portfolio1/client5.jpg",
@@ -109,6 +119,7 @@ const App = () => {
       photoBy: "Clinton Malicdon",
       camera: "Canon | 18-55mm",
       event: "18th Birthday Debut",
+      facebookLink: "https://www.facebook.com/"
     },
     {
       src: "/clinton-portfolio1/client6.JPG",
@@ -117,6 +128,7 @@ const App = () => {
       photoBy: "Clinton Malicdon",
       camera: "Fujifilm X-A3 | ISO 320 | F/5.3",
       event: "Binyag",
+      facebookLink: "https://www.facebook.com/"
     },
     {
       src: "/clinton-portfolio1/client7.jpg",
@@ -125,6 +137,7 @@ const App = () => {
       photoBy: "Clinton Malicdon",
       camera: "Canon | 18-55mm",
       event: "Binyag (Part II)",
+      facebookLink: "https://www.facebook.com/"
     },
     {
       src: "/clinton-portfolio1/client8.png",
@@ -133,6 +146,7 @@ const App = () => {
       photoBy: "Clinton Malicdon",
       camera: "Canon | 18-55mm",
       event: "Sports Fest Tournament",
+      facebookLink: "https://www.facebook.com/"
     },
     {
       src: "/clinton-portfolio1/client9.jpg",
@@ -141,6 +155,7 @@ const App = () => {
       photoBy: "Clinton Malicdon",
       camera: "Canon | 18-55mm",
       event: "18th Birthday",
+      facebookLink: "https://www.facebook.com/"
     }
   ];
 
@@ -493,14 +508,29 @@ const App = () => {
               <div>
                 <span className="block text-xs text-indigo-300 mb-4">Follow me on social media:</span>
                 <div className="flex flex-wrap gap-3">
-                   <a href="#https://www.facebook.com/clinton.malicdon.2024" className="w-10 h-10 rounded-full bg-[#1e1b4b]/80 flex items-center justify-center hover:bg-indigo-500 transition-colors border border-white/5">
-                      <svg xmlns="https://www.facebook.com/clinton.malicdon.2024" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+                   <a 
+                     href="https://www.facebook.com/clinton.malicdon.2024" 
+                     target="_blank" 
+                     rel="noopener noreferrer" 
+                     className="w-10 h-10 rounded-full bg-[#1e1b4b]/80 flex items-center justify-center hover:bg-indigo-500 transition-colors border border-white/5"
+                   >
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
                    </a>
-                   <a href="#https://www.instagram.com/pesho.arvie/" className="w-10 h-10 rounded-full bg-[#1e1b4b]/80 flex items-center justify-center hover:bg-indigo-500 transition-colors border border-white/5">
-                      <svg xmlns="https://www.instagram.com/pesho.arvie/" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                   <a 
+                     href="https://www.instagram.com/pesho.arvie/" 
+                     target="_blank" 
+                     rel="noopener noreferrer" 
+                     className="w-10 h-10 rounded-full bg-[#1e1b4b]/80 flex items-center justify-center hover:bg-indigo-500 transition-colors border border-white/5"
+                   >
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
                    </a>
-                   <a href="#https://www.linkedin.com/in/clinton-malicdon-000995313/" className="w-10 h-10 rounded-full bg-[#1e1b4b]/80 flex items-center justify-center hover:bg-indigo-500 transition-colors border border-white/5">
-                      <svg xmlns="https://www.linkedin.com/in/clinton-malicdon-000995313/" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                   <a 
+                     href="https://www.linkedin.com/in/clinton-malicdon-000995313/" 
+                     target="_blank" 
+                     rel="noopener noreferrer" 
+                     className="w-10 h-10 rounded-full bg-[#1e1b4b]/80 flex items-center justify-center hover:bg-indigo-500 transition-colors border border-white/5"
+                   >
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
                    </a>
                 </div>
               </div>
@@ -538,7 +568,7 @@ const App = () => {
         </div>
       </section>
 
-      {/* FIXED POPUP BOX LIGHTBOX */}
+      {/* FIXED POPUP BOX LIGHTBOX WITH SPLIT-SCREEN DARK BACKGROUND OVERLAY MODE */}
       {lightboxData && (
         <div className="fixed inset-0 bg-gray-950/98 backdrop-blur-md z-50 flex items-center justify-center p-4 md:p-8" onClick={() => setLightboxData(null)}>
           <div className="bg-[#0d1527] border border-slate-800 rounded-2xl overflow-hidden shadow-2xl flex flex-col md:grid md:grid-cols-12 max-w-5xl w-full max-h-[90vh] relative" onClick={(e) => e.stopPropagation()}>
@@ -546,23 +576,36 @@ const App = () => {
               <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
             </button>
             
-            {/* FIXED FULL CONTAINER IMAGE DISPLAY LAYER */}
-            <div className="md:col-span-7 bg-black relative min-h-[350px] md:min-h-[500px]">
-              <img src={lightboxData.src} alt="Expanded display" className="w-full h-full object-cover absolute inset-0" />
+            {/* FIXED DISPLAY BOUNDS SO VERTICAL CLIPS PREVENT CROPPING */}
+            <div className="md:col-span-7 bg-black flex items-center justify-center relative min-h-[350px] md:min-h-[500px]">
+              <img src={photoObj.src} alt="Expanded display frame mode" className="w-full h-full object-contain" />
             </div>
             
             <div className="md:col-span-5 p-8 flex flex-col justify-center text-center bg-[#0d1527] border-t md:border-t-0 md:border-l border-slate-800 text-white overflow-y-auto">
               {lightboxData.quote ? (
                 <>
                   <h4 className="text-lg md:text-xl font-black mb-6 tracking-wide text-blue-400 uppercase leading-snug">"{lightboxData.quote}"</h4>
-                  <div className="space-y-2 text-sm font-medium text-slate-300 border-b border-slate-800 pb-6">
+                  <div className="space-y-2 text-sm font-medium text-slate-300 border-b border-slate-800/80 pb-6">
                     <p><span className="font-semibold text-white">In Frame:</span> {lightboxData.inFrame || "N/A"}</p>
                     <p><span className="font-semibold text-white">Photo:</span> {lightboxData.photoBy}</p>
                     <p className="text-xs text-slate-400 font-mono mt-3">Camera: {lightboxData.camera}</p>
                   </div>
                   <div className="mt-6">
                     <span className="text-xs uppercase tracking-widest text-blue-500 font-bold block mb-1">Event/Project Name</span>
-                    <h5 className="text-white font-bold text-base tracking-wide">{lightboxData.event}</h5>
+                    <h5 className="text-white font-bold text-base tracking-wide mb-6">{lightboxData.event}</h5>
+                    
+                    {/* ACCESSIBLE EXTERNAL LINK DRAWER VIEW */}
+                    {lightboxData.facebookLink && (
+                      <a 
+                        href={lightboxData.facebookLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-full flex items-center justify-center gap-2 bg-blue-600 text-white font-bold text-xs tracking-wider uppercase px-4 py-3.5 rounded-xl hover:bg-blue-700 transition-all shadow-md hover:shadow-blue-600/20"
+                      >
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                        View Full Project
+                      </a>
+                    )}
                   </div>
                 </>
               ) : (
@@ -574,6 +617,21 @@ const App = () => {
           </div>
         </div>
       )}
+
+      {/* Footer */}
+      <footer className="w-full bg-gray-50 border-t border-gray-200 py-16 text-center px-6">
+        <h2 className="text-3xl font-black tracking-tighter text-gray-900 mb-6 uppercase">
+          CLINTON MALICDON<span className="text-blue-600">.</span>
+        </h2>
+        <div className="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-6 text-gray-500 font-bold text-xs tracking-wider uppercase mb-8">
+          <span>09691809485</span>
+          <span className="hidden sm:inline text-gray-300">|</span>
+          <span>Cavite, Philippines</span>
+          <span className="hidden sm:inline text-gray-300">|</span>
+          <span className="lowercase font-semibold">clinton.malicdon0@gmail.com</span>
+        </div>
+        <p className="text-gray-400 text-xs font-medium">&copy; {new Date().getFullYear()} Clinton B. Malicdon. All rights reserved.</p>
+      </footer>
 
     </div>
   );
