@@ -167,7 +167,6 @@ const App = () => {
               ))}
             </ul>
             
-            {/* Changed href from mailto to #contact */}
             <a 
               href="#contact" 
               className="px-5 py-2 text-xs font-bold uppercase tracking-wider text-white bg-emerald-500 hover:bg-emerald-600 rounded-full transition-all duration-300 shadow-[0_2px_10px_rgba(16,185,129,0.2)]"
@@ -311,42 +310,36 @@ const App = () => {
               <h4 className="text-4xl font-black tracking-tight mb-10 uppercase">Education</h4>
             </div>
             
-            {/* FIXED EDUCATION TIMELINE */}
+            {/* TIMELINE DESIGN WITH TOP-ALIGNED NODE DOTS */}
             <div className="relative border-l-2 border-slate-700 ml-4 md:ml-8 space-y-12">
               
               {/* Item 1 */}
-              <div className="relative pl-8 md:pl-12 w-full flex items-center min-h-[140px]">
-                {/* Dot vertically centered (top-1/2 -translate-y-1/2) exactly on the border line (-left-[9px]) */}
-                <div className="absolute -left-[9px] top-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-blue-500 shadow-[0_0_12px_rgba(59,130,246,0.8)] border-2 border-[#0b1120]"></div>
+              <div className="relative pl-8 md:pl-12 w-full flex flex-col items-center text-center">
+                {/* Fixed position to align directly with the first line text title */}
+                <div className="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-blue-500 shadow-[0_0_12px_rgba(59,130,246,0.8)] border-2 border-[#0b1120]"></div>
                 
-                {/* Content perfectly centered horizontally within its own block */}
-                <div className="w-full flex flex-col items-center text-center">
-                  <h5 className="text-xl font-bold text-white tracking-wide">BS in Information Technology</h5>
-                  <p className="text-blue-400 font-medium text-sm mb-1">Cavite State University - Imus Campus</p>
-                  <p className="text-slate-400 text-xs font-bold mb-3">2021 - 2025</p>
-                  <p className="text-slate-300 text-sm leading-relaxed mb-2 max-w-lg">
-                    <span className="text-white font-bold">Capstone:</span> Arduino Smart Lock Security System for Computer Laboratory.
-                  </p>
-                  <p className="text-slate-300 text-sm leading-relaxed max-w-lg">
-                    <span className="text-white font-bold">Leadership:</span> Senior Head Photographer (BITS), Documentation Committee (CSG & BITS).
-                  </p>
-                </div>
+                <h5 className="text-xl font-bold text-white tracking-wide">BS in Information Technology</h5>
+                <p className="text-blue-400 font-medium text-sm mb-1">Cavite State University - Imus Campus</p>
+                <p className="text-slate-400 text-xs font-bold mb-3">2021 - 2025</p>
+                <p className="text-slate-300 text-sm leading-relaxed mb-2 max-w-lg">
+                  <span className="text-white font-bold">Capstone:</span> Arduino Smart Lock Security System for Computer Laboratory.
+                </p>
+                <p className="text-slate-300 text-sm leading-relaxed max-w-lg">
+                  <span className="text-white font-bold">Leadership:</span> Senior Head Photographer (BITS), Documentation Committee (CSG & BITS).
+                </p>
               </div>
               
               {/* Item 2 */}
-              <div className="relative pl-8 md:pl-12 w-full flex items-center min-h-[120px]">
-                {/* Dot vertically centered exactly on the border line */}
-                <div className="absolute -left-[9px] top-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-blue-500 shadow-[0_0_12px_rgba(59,130,246,0.8)] border-2 border-[#0b1120]"></div>
+              <div className="relative pl-8 md:pl-12 w-full flex flex-col items-center text-center">
+                {/* Fixed position to align directly with the first line text title */}
+                <div className="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-blue-500 shadow-[0_0_12px_rgba(59,130,246,0.8)] border-2 border-[#0b1120]"></div>
                 
-                {/* Content perfectly centered horizontally */}
-                <div className="w-full flex flex-col items-center text-center">
-                  <h5 className="text-xl font-bold text-white tracking-wide">Senior High School - ICT</h5>
-                  <p className="text-blue-400 font-medium text-sm mb-1">Informatics College Cavite</p>
-                  <p className="text-slate-400 text-xs font-bold mb-3">2019 - 2021</p>
-                  <p className="text-slate-300 text-sm leading-relaxed max-w-lg">
-                    <span className="text-white font-bold">Coursework:</span> Programming Strand | Software Development Fundamentals.
-                  </p>
-                </div>
+                <h5 className="text-xl font-bold text-white tracking-wide">Senior High School - ICT</h5>
+                <p className="text-blue-400 font-medium text-sm mb-1">Informatics College Cavite</p>
+                <p className="text-slate-400 text-xs font-bold mb-3">2019 - 2021</p>
+                <p className="text-slate-300 text-sm leading-relaxed max-w-lg">
+                  <span className="text-white font-bold">Coursework:</span> Programming Strand | Software Development Fundamentals.
+                </p>
               </div>
 
             </div>
@@ -472,7 +465,7 @@ const App = () => {
         </div>
       </section>
 
-      {/* NEW CONTACT SECTION */}
+      {/* Contact Section */}
       <section id="contact" className="w-full py-24 bg-[#1e1b4b] text-white px-6 md:px-12 scroll-mt-24">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-16">
@@ -481,7 +474,6 @@ const App = () => {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {/* Left Card - Details */}
             <div className="bg-[#2a2656] p-8 md:p-10 rounded-3xl shadow-xl border border-white/5 flex flex-col gap-8">
               <div>
                 <h4 className="text-2xl font-bold mb-4">Let's talk about everything!</h4>
@@ -521,7 +513,6 @@ const App = () => {
               </div>
             </div>
             
-            {/* Right Card - Form */}
             <div className="bg-[#2a2656] p-8 md:p-10 rounded-3xl shadow-xl border border-white/5 flex flex-col justify-between">
               <form className="space-y-6">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -587,21 +578,6 @@ const App = () => {
           </div>
         </div>
       )}
-
-      {/* Footer */}
-      <footer className="w-full bg-gray-50 border-t border-gray-200 py-16 text-center px-6">
-        <h2 className="text-3xl font-black tracking-tighter text-gray-900 mb-6 uppercase">
-          CLINTON MALICDON<span className="text-blue-600">.</span>
-        </h2>
-        <div className="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-6 text-gray-500 font-bold text-xs tracking-wider uppercase mb-8">
-          <span>09691809485</span>
-          <span className="hidden sm:inline text-gray-300">|</span>
-          <span>Cavite, Philippines</span>
-          <span className="hidden sm:inline text-gray-300">|</span>
-          <span className="lowercase font-semibold">clinton.malicdon0@gmail.com</span>
-        </div>
-        <p className="text-gray-400 text-xs font-medium">&copy; {new Date().getFullYear()} Clinton B. Malicdon. All rights reserved.</p>
-      </footer>
 
     </div>
   );
