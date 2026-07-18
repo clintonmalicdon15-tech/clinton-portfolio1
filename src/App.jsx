@@ -578,7 +578,7 @@ const App = () => {
             
             {/* FIXED DISPLAY BOUNDS SO VERTICAL CLIPS PREVENT CROPPING */}
             <div className="md:col-span-7 bg-black flex items-center justify-center relative min-h-[350px] md:min-h-[500px]">
-              <img src={photoObj.src} alt="Expanded display frame mode" className="w-full h-full object-contain" />
+              <img src={lightboxData.src} alt="Expanded display frame mode" className="w-full h-full object-contain" />
             </div>
             
             <div className="md:col-span-5 p-8 flex flex-col justify-center text-center bg-[#0d1527] border-t md:border-t-0 md:border-l border-slate-800 text-white overflow-y-auto">
