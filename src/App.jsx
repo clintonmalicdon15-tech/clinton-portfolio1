@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 
-
 const App = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [lightboxData, setLightboxData] = useState(null);
@@ -13,6 +12,7 @@ const App = () => {
     { name: 'Education', href: '#education' },
     { name: 'Skills', href: '#skills' },
     { name: 'Photography', href: '#photography' },
+    { name: 'Projects', href: '#projects' }, // <-- New Projects Link
   ];
 
   // 1st Category: Personal Photography (9 Items total, last 3 are coming soon)
@@ -102,7 +102,6 @@ const App = () => {
       photoBy: "Clinton Malicdon",
       camera: "Nikon | Kitlens 18-55mm",
       event: "Photo Essay",
-  
     },
     {
       src: "/clinton-portfolio1/client4.jpg",
@@ -117,9 +116,8 @@ const App = () => {
       quote: "Stepping gracefully into adulthood and new chapters.",
       inFrame: "Debutante",
       photoBy: "Clinton Malicdon",
-      camera: "Canon |18-55mm",
+      camera: "Canon | 18-55mm",
       event: "18th Birthday Debut",
-
     },
     {
       src: "/clinton-portfolio1/client6.JPG",
@@ -127,35 +125,31 @@ const App = () => {
       inFrame: "Baby & Godparents",
       photoBy: "Clinton Malicdon",
       camera: "Fujifilm X-A3 | ISO 320 | F/5.3",
-      event: "Binyag Christening",
-
+      event: "Binyag",
     },
     {
       src: "/clinton-portfolio1/client7.jpg",
       quote: "Cherished milestones and family blessings.",
-      inFrame: "Domingunez Family",
+      inFrame: "Dominguez Family",
       photoBy: "Clinton Malicdon",
-      camera: "Canon |18-55mm",
-      event: "Binyag Christening (Part II)",
-
+      camera: "Canon | 18-55mm",
+      event: "Binyag (Part II)",
     },
     {
       src: "/clinton-portfolio1/client8.png",
       quote: "High energy capture, frozen action, and intense athletic spirit.",
       inFrame: "Company Athletes",
       photoBy: "Clinton Malicdon",
-      camera: "Canon |18-55mm",
+      camera: "Canon | 18-55mm",
       event: "Sports Fest Tournament",
-
     },
     {
       src: "/clinton-portfolio1/client9.jpg",
       quote: "A glamorous night full of youth, elegance, and memories.",
       inFrame: "Julieanne Sugordiano Sappari",
       photoBy: "Clinton Malicdon",
-      camera: "Canon |18-55mm",
-      event: "18th Birthday Gala",
-
+      camera: "Canon | 18-55mm",
+      event: "18th Birthday",
     }
   ];
 
@@ -172,15 +166,25 @@ const App = () => {
           </h1>
           
           {/* Desktop Nav */}
-          <ul className="hidden md:flex gap-8 text-xs font-bold uppercase tracking-wider text-gray-500">
-            {navLinks.map((link) => (
-              <li key={link.name}>
-                <a href={link.href} className="hover:text-blue-600 transition-colors duration-300">
-                  {link.name}
-                </a>
-              </li>
-            ))}
-          </ul>
+          <div className="hidden md:flex items-center gap-8">
+            <ul className="flex gap-6 lg:gap-8 text-xs font-bold uppercase tracking-wider text-gray-500">
+              {navLinks.map((link) => (
+                <li key={link.name}>
+                  <a href={link.href} className="hover:text-blue-600 transition-colors duration-300">
+                    {link.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+            
+            {/* Green Hire Me Capsule Button */}
+            <a 
+              href="mailto:clinton.malicdon0@gmail.com" 
+              className="px-5 py-2 text-xs font-bold uppercase tracking-wider text-white bg-emerald-500 hover:bg-emerald-600 rounded-full transition-all duration-300 shadow-[0_2px_10px_rgba(16,185,129,0.2)]"
+            >
+              Hire Me
+            </a>
+          </div>
 
           {/* Mobile Menu Toggle */}
           <button 
@@ -209,6 +213,13 @@ const App = () => {
               {link.name}
             </a>
           ))}
+          <a 
+            href="mailto:clinton.malicdon0@gmail.com"
+            onClick={() => setIsMobileMenuOpen(false)}
+            className="block text-center text-sm font-bold uppercase tracking-widest text-white bg-emerald-500 hover:bg-emerald-600 py-3 mt-4 rounded-xl transition-colors"
+          >
+            Hire Me
+          </a>
         </div>
       )}
 
@@ -311,12 +322,16 @@ const App = () => {
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16">
           
           <div>
-            <h3 className="text-blue-400 font-bold uppercase tracking-widest mb-2 text-sm">Academics</h3>
-            <h4 className="text-4xl font-black tracking-tight mb-10 uppercase">Education</h4>
+            <div className="text-center sm:text-left">
+              <h3 className="text-blue-400 font-bold uppercase tracking-widest mb-2 text-sm">Academics</h3>
+              <h4 className="text-4xl font-black tracking-tight mb-10 uppercase">Education</h4>
+            </div>
             
-            <div className="space-y-8 border-l-2 border-gray-800 pl-6 ml-2">
-              <div className="relative">
-                <div className="absolute -left-[31px] top-1.5 w-3 h-3 rounded-full bg-blue-500 border-2 border-gray-900"></div>
+            <div className="space-y-8 border-l-2 border-gray-800 ml-4 pl-8">
+              {/* Item 1 */}
+              <div className="relative flex flex-col justify-center">
+                {/* Node circle dot centered horizontally on the border-l line */}
+                <div className="absolute -left-[39px] w-4 h-4 rounded-full bg-blue-500 shadow-[0_0_10px_rgba(59,130,246,0.6)] border-2 border-gray-900"></div>
                 <h5 className="text-xl font-bold">BS in Information Technology</h5>
                 <p className="text-blue-400 font-medium text-sm mb-1">Cavite State University - Imus Campus</p>
                 <p className="text-gray-400 text-xs font-bold mb-3">2021 - 2025</p>
@@ -324,8 +339,10 @@ const App = () => {
                 <p className="text-gray-300 text-justify text-sm leading-relaxed"><span className="text-white font-bold">Leadership:</span> Senior Head Photographer (BITS), Documentation Committee (CSG & BITS).</p>
               </div>
               
-              <div className="relative">
-                <div className="absolute -left-[31px] top-1.5 w-3 h-3 rounded-full bg-blue-500 border-2 border-gray-900"></div>
+              {/* Item 2 */}
+              <div className="relative flex flex-col justify-center">
+                {/* Node circle dot centered horizontally on the border-l line */}
+                <div className="absolute -left-[39px] w-4 h-4 rounded-full bg-blue-500 shadow-[0_0_10px_rgba(59,130,246,0.6)] border-2 border-gray-900"></div>
                 <h5 className="text-xl font-bold">Senior High School - ICT</h5>
                 <p className="text-blue-400 font-medium text-sm mb-1">Informatics College Cavite</p>
                 <p className="text-gray-400 text-xs font-bold mb-3">2019 - 2021</p>
@@ -390,23 +407,23 @@ const App = () => {
 
       {/* Photography Section */}
       <section id="photography" className="w-full py-24 bg-white px-6 md:px-12 scroll-mt-24">
-        <div className="max-w-7xl mx-auto mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
-          <div>
+        <div className="max-w-7xl mx-auto mb-12 flex flex-col items-center gap-6">
+          <div className="text-center">
             <h3 className="text-blue-600 font-bold uppercase tracking-widest mb-2 text-sm">Portfolio</h3>
             <h4 className="text-4xl font-black text-gray-900 tracking-tight uppercase">Photography</h4>
           </div>
           
-          {/* Gallery Category Tabs */}
-          <div className="flex bg-gray-100 p-1 rounded-xl border border-gray-200">
+          {/* Gallery Category Slider Pill Container Tabs */}
+          <div className="flex bg-slate-100 p-1.5 rounded-full shadow-inner border border-gray-200/50">
             <button 
               onClick={() => setActiveTab('personal')}
-              className={`px-5 py-2.5 rounded-lg text-xs font-bold uppercase tracking-wider transition-all ${activeTab === 'personal' ? 'bg-blue-600 text-white shadow-sm' : 'text-gray-500 hover:text-gray-900'}`}
+              className={`px-6 py-2 rounded-full text-xs font-bold tracking-wider uppercase transition-all duration-300 ${activeTab === 'personal' ? 'bg-blue-600 text-white shadow-md' : 'text-slate-500 hover:text-slate-800'}`}
             >
               Personal Work
             </button>
             <button 
               onClick={() => setActiveTab('client')}
-              className={`px-5 py-2.5 rounded-lg text-xs font-bold uppercase tracking-wider transition-all ${activeTab === 'client' ? 'bg-blue-600 text-white shadow-sm' : 'text-gray-500 hover:text-gray-900'}`}
+              className={`px-6 py-2 rounded-full text-xs font-bold tracking-wider uppercase transition-all duration-300 ${activeTab === 'client' ? 'bg-blue-600 text-white shadow-md' : 'text-slate-500 hover:text-slate-800'}`}
             >
               Client Projects
             </button>
@@ -449,62 +466,86 @@ const App = () => {
         </div>
       </section>
 
-      {/* Lightbox Overlay - Split View */}
+      {/* NEW SECTION: Projects (Coming Soon) */}
+      <section id="projects" className="w-full py-24 bg-gray-50 border-t border-gray-100 px-6 md:px-12 scroll-mt-24">
+        <div className="max-w-7xl mx-auto flex flex-col items-center justify-center text-center">
+          <h3 className="text-blue-600 font-bold uppercase tracking-widest mb-2 text-sm">Development & Coding</h3>
+          <h4 className="text-4xl font-black text-gray-900 tracking-tight mb-12 uppercase">Projects</h4>
+          
+          <div className="bg-white w-full max-w-3xl p-16 rounded-2xl border border-gray-200 shadow-sm flex flex-col items-center justify-center text-center">
+            <svg className="text-gray-300 mb-6" xmlns="http://www.w3.org/2000/svg" width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+              <circle cx="12" cy="12" r="10"/>
+              <polyline points="12 6 12 12 16 14"/>
+            </svg>
+            <h5 className="text-2xl sm:text-3xl font-black text-gray-400 uppercase tracking-widest mb-2">
+              Coming Soon
+            </h5>
+            <p className="text-gray-500 font-medium">
+              I am currently working on uploading my development projects here. Check back soon!
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Lightbox Overlay - Detailed View Component */}
       {lightboxData && (
         <div 
           className="fixed inset-0 bg-gray-950/98 backdrop-blur-md z-50 flex items-center justify-center p-4 md:p-8"
           onClick={() => setLightboxData(null)}
         >
-          {/* Close Button */}
-          <button 
-            className="absolute top-4 right-4 md:top-8 md:right-8 bg-white/10 hover:bg-white/20 text-white rounded-full p-2.5 transition-colors z-50"
-            onClick={() => setLightboxData(null)}
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
-          </button>
-          
-          {/* Lightbox Container */}
+          {/* Lightbox Container Box Card */}
           <div 
-            className="bg-white rounded-2xl overflow-hidden shadow-2xl flex flex-col md:flex-row max-w-6xl w-full max-h-[90vh]"
+            className="bg-[#0d1527] border border-slate-800 rounded-2xl overflow-hidden shadow-2xl flex flex-col md:grid md:grid-cols-12 max-w-4xl w-full max-h-[90vh] relative"
             onClick={(e) => e.stopPropagation()}
           >
-            {/* Image Side (Left) */}
-            <div className="w-full md:w-2/3 bg-gray-100 flex items-center justify-center relative min-h-[300px]">
+            {/* Close Cross icon inside layout context */}
+            <button 
+              className="absolute top-4 right-4 bg-white/10 hover:bg-white/20 text-white rounded-full p-2 transition-colors z-50 shadow-md"
+              onClick={() => setLightboxData(null)}
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+            </button>
+
+            {/* Image Side Grid Panel (Left 7/12) */}
+            <div className="md:col-span-7 bg-black flex items-center justify-center relative min-h-[260px] md:h-full">
               <img 
                 src={lightboxData.src} 
                 alt="Expanded project display frame" 
-                className="max-w-full max-h-[50vh] md:max-h-[90vh] object-contain"
+                className="w-full h-full object-cover md:max-h-[75vh]"
               />
             </div>
 
-            {/* Description Side (Right) */}
-            <div className="w-full md:w-1/3 p-8 flex flex-col justify-center bg-gray-900 text-white overflow-y-auto">
+            {/* Description Details Panel (Right 5/12) */}
+            <div className="md:col-span-5 p-8 flex flex-col justify-center text-center bg-[#0d1527] border-t md:border-t-0 md:border-l border-slate-800 text-white overflow-y-auto">
               {lightboxData.quote ? (
                 <>
-                  <h4 className="text-xl md:text-2xl font-black mb-6 tracking-tight text-blue-400 leading-snug">
+                  <h4 className="text-lg md:text-xl font-black mb-6 tracking-wide text-blue-400 uppercase leading-snug">
                     "{lightboxData.quote}"
                   </h4>
-                  <div className="space-y-3 text-sm font-medium text-gray-300">
-                    <p><strong className="text-white">In Frame:</strong> {lightboxData.inFrame || "N/A"}</p>
-                    <p><strong className="text-white">Photo:</strong> {lightboxData.photoBy}</p>
-                    <p><strong className="text-white">Camera:</strong> {lightboxData.camera}</p>
-                    
-                    <div className="pt-6 mt-6 border-t border-gray-800">
-                      <strong className="block text-xs uppercase tracking-widest text-blue-500 mb-1">Event/Project Name</strong>
-                      <span className="text-white font-bold">{lightboxData.event}</span>
-                    </div>
+                  <div className="space-y-2 text-sm font-medium text-slate-300 border-b border-slate-800 pb-6">
+                    <p><span className="font-semibold text-white">In Frame:</span> {lightboxData.inFrame || "N/A"}</p>
+                    <p><span className="font-semibold text-white">Photo:</span> {lightboxData.photoBy}</p>
+                    <p className="text-xs text-slate-400 font-mono mt-3">
+                      Camera: {lightboxData.camera}
+                    </p>
+                  </div>
 
-                    
+                  <div className="mt-6">
+                    <span className="text-xs uppercase tracking-widest text-blue-500 font-bold block mb-1">
+                      Event/Project Name
+                    </span>
+                    <h5 className="text-white font-bold text-base tracking-wide">
+                      {lightboxData.event}
+                    </h5>
                   </div>
                 </>
               ) : (
-                <div className="flex flex-col justify-center items-center h-full text-gray-500 text-sm">
-                  <p>No description provided for this shot.</p>
+                <div className="flex flex-col justify-center items-center h-full text-slate-500 text-sm">
+                  <p>No description provided for this item.</p>
                 </div>
               )}
             </div>
           </div>
-
         </div>
       )}
 
