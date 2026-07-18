@@ -538,7 +538,7 @@ const App = () => {
         </div>
       </section>
 
-      {/* FIXED Lightbox Overlay */}
+      {/* FIXED POPUP BOX LIGHTBOX */}
       {lightboxData && (
         <div className="fixed inset-0 bg-gray-950/98 backdrop-blur-md z-50 flex items-center justify-center p-4 md:p-8" onClick={() => setLightboxData(null)}>
           <div className="bg-[#0d1527] border border-slate-800 rounded-2xl overflow-hidden shadow-2xl flex flex-col md:grid md:grid-cols-12 max-w-5xl w-full max-h-[90vh] relative" onClick={(e) => e.stopPropagation()}>
@@ -546,9 +546,9 @@ const App = () => {
               <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
             </button>
             
-            {/* Swapped object-cover to object-contain, added padding, and allowed the height to breathe */}
-            <div className="md:col-span-7 bg-black flex items-center justify-center relative min-h-[300px] md:min-h-[500px] p-4">
-              <img src={lightboxData.src} alt="Expanded display" className="w-full h-full object-contain max-h-[40vh] md:max-h-[80vh]" />
+            {/* FIXED FULL CONTAINER IMAGE DISPLAY LAYER */}
+            <div className="md:col-span-7 bg-black relative min-h-[350px] md:min-h-[500px]">
+              <img src={lightboxData.src} alt="Expanded display" className="w-full h-full object-cover absolute inset-0" />
             </div>
             
             <div className="md:col-span-5 p-8 flex flex-col justify-center text-center bg-[#0d1527] border-t md:border-t-0 md:border-l border-slate-800 text-white overflow-y-auto">
