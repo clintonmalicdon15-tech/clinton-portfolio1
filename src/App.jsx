@@ -1,0 +1,530 @@
+import React, { useState } from 'react';
+
+const App = () => {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [lightboxData, setLightboxData] = useState(null);
+  const [activeTab, setActiveTab] = useState('personal'); // 'personal' or 'client'
+
+  const navLinks = [
+    { name: 'Home', href: '#home' },
+    { name: 'About', href: '#about' },
+    { name: 'Experience', href: '#experience' },
+    { name: 'Education', href: '#education' },
+    { name: 'Skills', href: '#skills' },
+    { name: 'Photography', href: '#photography' },
+  ];
+
+  // 1st Category: Personal Photography (9 Items total, last 3 are coming soon)
+  const personalPhotos = [
+    {
+      src: "/photo2.jpg",
+      quote: "LATINA - Al James",
+      inFrame: "Mavi Jamen & Jomer Vincent Salamat",
+      photoBy: "Clinton Malicdon",
+      camera: "Fujifilm X-A3 | ISO 320 | F/5.3",
+      event: "Photoshoot for CAF 2024",
+      facebookLink: "https://www.facebook.com/share/p/1FiTqA7axd/"
+    },
+    {
+      src: "/photo1.jpg",
+      quote: "An Art Gallery Could Never Be As Unique As You - mrld",
+      inFrame: "Xenalyn Belencio",
+      photoBy: "Clinton Malicdon",
+      camera: "Nikon | Kitlens 18-55mm",
+      event: "CULTURE AND THE ARTS FESTIVAL",
+      facebookLink: "https://www.facebook.com/share/p/1CVTMTmjR9/"
+    },
+    {
+      src: "/photo3.jpg", 
+      quote: "Hey Barbara - IV OF SPADES",
+      inFrame: "Chrislynne Salas",
+      photoBy: "Clinton Malicdon",
+      camera: "Nikon | Sigma 70-300mm | ISO 800 | F/5.6",
+      event: "PROJECT Zoldyck",
+      facebookLink: "https://www.facebook.com/share/p/1CY1ZkZMTZ/"
+    }, 
+    {
+      src: "/photo4.jpg", 
+      quote: "In My Prison - IV OF SPADES",
+      inFrame: "N/A",
+      photoBy: "Clinton Malicdon",
+      camera: "Nikon | Nikkor 50mm | ISO 400 | F/2.8",
+      event: "Battle of the Bands @CvSU - Imus Campus | Part I",
+      facebookLink: "https://www.facebook.com/share/p/1J7dS2xm8u/"
+    }, 
+    {
+      src: "/photo6.jpg", 
+      quote: "10. Scenery",
+      inFrame: "Nicole Caratihan",
+      photoBy: "Clinton Malicdon",
+      camera: "Nikon | Tamron 70-300mm & Prime Lens 17-50mm | ISO 800 | 1/100s | F/5.6",
+      event: "Local Culture and Arts Festival | Central Student Government - Imus Campus",
+      facebookLink: "https://www.facebook.com/share/p/18ws5vweMV/"
+    },
+    {
+      src: "/photo5.jpg", 
+      quote: "Monster - IV OF SPADES",
+      inFrame: "N/A",
+      photoBy: "Clinton Malicdon",
+      camera: "Tecno Pova 7",
+      event: "Battle of The Bands @Cavite State University - Imus Campus",
+      facebookLink: "https://www.facebook.com/share/p/1BWCunuzoB/"
+    },
+    // The last 3 photos are flagged as Coming Soon
+    { isComingSoon: true },
+    { isComingSoon: true },
+    { isComingSoon: true }
+  ];
+
+  // 2nd Category: Client Photography (9 Items total matching your exact list)
+  const clientPhotos = [
+    {
+      src: "/client1.jpg",
+      quote: "Love enduring through the ages.",
+      inFrame: "Ramos Family",
+      photoBy: "Clinton Malicdon",
+      camera: "Nikon | Kitlens 18-55mm",
+      event: "Wedding"
+    },
+    {
+      src: "/client2.jpg",
+      quote: "Bringing fictional worlds into crystal clear reality.",
+      inFrame: "Kyla Barnickel",
+      photoBy: "Clinton Malicdon",
+      camera: "Nikon | Kitlens 18-55mm",
+      event: "Project COS",
+    },
+    {
+      src: "/client3.jpg",
+      quote: "Visual journalism and deep storytelling within the community.",
+      inFrame: "N/A",
+      photoBy: "Clinton Malicdon",
+      camera: "Nikon | Kitlens 18-55mm",
+      event: "Photo Essay",
+  
+    },
+    {
+      src: "/client4.jpg",
+      quote: "Celebrating a milestone diamond jubilee of wonderful life.",
+      inFrame: "Celebrant Family",
+      photoBy: "Clinton Malicdon",
+      camera: "Nikon | Kitlens 18-55mm",
+      event: "60th Birthday Celebration",
+    },
+    {
+      src: "/client5.jpg",
+      quote: "Stepping gracefully into adulthood and new chapters.",
+      inFrame: "Debutante",
+      photoBy: "Clinton Malicdon",
+      camera: "Canon |18-55mm",
+      event: "18th Birthday Debut",
+
+    },
+    {
+      src: "/client6.JPG",
+      quote: "Welcoming new light and spiritual beginnings.",
+      inFrame: "Baby & Godparents",
+      photoBy: "Clinton Malicdon",
+      camera: "Fujifilm X-A3 | ISO 320 | F/5.3",
+      event: "Binyag Christening",
+
+    },
+    {
+      src: "/client7.jpg",
+      quote: "Cherished milestones and family blessings.",
+      inFrame: "Domingunez Family",
+      photoBy: "Clinton Malicdon",
+      camera: "Canon |18-55mm",
+      event: "Binyag Christening (Part II)",
+
+    },
+    {
+      src: "/client8.png",
+      quote: "High energy capture, frozen action, and intense athletic spirit.",
+      inFrame: "Company Athletes",
+      photoBy: "Clinton Malicdon",
+      camera: "Canon |18-55mm",
+      event: "Sports Fest Tournament",
+
+    },
+    {
+      src: "/client9.jpg",
+      quote: "A glamorous night full of youth, elegance, and memories.",
+      inFrame: "Julieanne Sugordiano Sappari",
+      photoBy: "Clinton Malicdon",
+      camera: "Canon |18-55mm",
+      event: "18th Birthday Gala",
+
+    }
+  ];
+
+  const currentGallery = activeTab === 'personal' ? personalPhotos : clientPhotos;
+
+  return (
+    <div className="w-full min-h-screen bg-white text-gray-900 selection:bg-blue-600 selection:text-white antialiased">
+      
+      {/* Sticky Modern Navbar */}
+      <nav className="fixed top-0 left-0 w-full bg-white/95 backdrop-blur-md z-40 border-b border-gray-100 shadow-sm">
+        <div className="w-full max-w-7xl mx-auto px-6 md:px-12 py-5 flex justify-between items-center">
+          <h1 className="text-2xl font-black tracking-tighter text-gray-900 uppercase">
+            CLINTON MALICDON<span className="text-blue-600">.</span>
+          </h1>
+          
+          {/* Desktop Nav */}
+          <ul className="hidden md:flex gap-8 text-xs font-bold uppercase tracking-wider text-gray-500">
+            {navLinks.map((link) => (
+              <li key={link.name}>
+                <a href={link.href} className="hover:text-blue-600 transition-colors duration-300">
+                  {link.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+
+          {/* Mobile Menu Toggle */}
+          <button 
+            className="md:hidden text-gray-900 hover:text-blue-600 transition-colors"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          >
+            {isMobileMenuOpen ? (
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+            ) : (
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+            )}
+          </button>
+        </div>
+      </nav>
+
+      {/* Mobile Nav Dropdown */}
+      {isMobileMenuOpen && (
+        <div className="md:hidden fixed top-[69px] left-0 w-full bg-white shadow-xl z-30 flex flex-col px-6 py-4 border-t border-gray-100">
+          {navLinks.map((link) => (
+            <a 
+              key={link.name} 
+              href={link.href} 
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="block text-sm font-bold uppercase tracking-widest text-gray-900 hover:text-blue-600 py-4 border-b border-gray-50 last:border-0"
+            >
+              {link.name}
+            </a>
+          ))}
+        </div>
+      )}
+
+      {/* Hero Section */}
+      <section id="home" className="w-full pt-28 pb-16 md:pt-44 md:pb-28 px-6 md:px-12 bg-white scroll-mt-24">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-12">
+          
+          <div className="w-full md:w-7/12 flex flex-col justify-center">
+            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-[1.1] tracking-tight text-gray-900 mb-6 uppercase">
+              IT Specialist <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">& Photographer.</span>
+            </h2>
+            <p className="text-gray-600 text-base md:text-lg text-justify leading-relaxed mb-8 max-w-xl font-medium">
+              Hi, I'm Clinton B. Malicdon. A detail-oriented Information Technology graduate with hands-on experience in technical support, infrastructure maintenance, and visual storytelling.
+            </p>
+            <div className="flex flex-wrap gap-4">
+              <a href="#photography" className="bg-blue-600 text-white px-8 py-4 rounded-lg font-bold tracking-wide uppercase hover:bg-blue-700 hover:shadow-lg hover:shadow-blue-600/30 transition-all text-center text-sm">
+                View Portfolio
+              </a>
+              <a href="#about" className="bg-white text-gray-900 border-2 border-gray-200 px-8 py-4 rounded-lg font-bold tracking-wide uppercase hover:border-gray-900 transition-all text-center text-sm">
+                About Me
+              </a>
+            </div>
+          </div>
+          
+          <div className="w-full md:w-5/12 flex justify-center items-center">
+            <div className="relative w-full max-w-[360px] md:max-w-none aspect-[4/5]">
+              <div className="absolute inset-0 bg-blue-600 translate-x-4 translate-y-4 rounded-2xl"></div>
+              <div className="absolute inset-0 bg-gray-200 rounded-2xl overflow-hidden shadow-xl border-4 border-white">
+                <img 
+                  src="/profile.jpg" 
+                  alt="Clinton B. Malicdon" 
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      {/* About Me Section */}
+      <section id="about" className="w-full py-24 bg-gray-50 border-y border-gray-100 px-6 md:px-12 scroll-mt-24">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-8 lg:gap-12 items-start">
+          <div className="w-full md:w-1/3">
+            <h3 className="text-blue-600 font-bold uppercase tracking-widest mb-2 text-sm">Introduction</h3>
+            <h4 className="text-4xl font-black text-gray-900 tracking-tight uppercase">About Me</h4>
+          </div>
+          <div className="w-full md:w-2/3">
+            <p className="text-gray-600 text-justify leading-relaxed text-lg font-medium">
+              Detail-oriented Information Technology graduate with hands-on experience in technical support, infrastructure maintenance, and system administration. Proven track record of ensuring operational continuity by proactively troubleshooting hardware, software, and networking issues. Adept at managing local office systems and coordinating technical logistics for community programs and administrative operations.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Work Experience */}
+      <section id="experience" className="w-full py-24 px-6 md:px-12 bg-white scroll-mt-24">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-16">
+            <h3 className="text-blue-600 font-bold uppercase tracking-widest mb-2 text-sm">Professional Journey</h3>
+            <h4 className="text-4xl font-black text-gray-900 tracking-tight uppercase">Work Experience</h4>
+          </div>
+          
+          <div className="space-y-8">
+            <div className="bg-gray-50 p-8 md:p-10 rounded-2xl border border-gray-100">
+              <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-6 gap-4">
+                <div>
+                  <h4 className="text-2xl font-bold text-gray-900">Technical Support</h4>
+                  <p className="text-blue-600 font-semibold text-sm">Barangay Molino 1 Office</p>
+                </div>
+                <span className="inline-block bg-white text-gray-600 border border-gray-200 px-4 py-2 rounded-full text-xs font-bold tracking-wider w-max">July 2024 - July 2026</span>
+              </div>
+              <ul className="space-y-3 text-gray-600 text-justify text-sm leading-relaxed font-medium">
+                <li>• Maintained critical IT infrastructure, including 15+ computer systems, printers, and network equipment, to ensure seamless day-to-day operations, achieving a 99% system uptime rate.</li>
+                <li>• Resolved technical hardware and software issues through proactive monitoring and rapid diagnostics, resulting in a 25% reduction in weekly office workflow disruptions and downtime.</li>
+                <li>• Coordinated creative and technical logistics, including photography and media support, to capture and archive critical data for 10+ major community assemblies and programs.</li>
+              </ul>
+            </div>
+
+            <div className="bg-gray-50 p-8 md:p-10 rounded-2xl border border-gray-100">
+              <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-6 gap-4">
+                <div>
+                  <h4 className="text-2xl font-bold text-gray-900">Sales Technician</h4>
+                  <p className="text-blue-600 font-semibold text-sm">Kaansky & Z-BEN CCTV Trading</p>
+                </div>
+                <span className="inline-block bg-white text-gray-600 border border-gray-200 px-4 py-2 rounded-full text-xs font-bold tracking-wider w-max">Jan 2022 - Sept 2022</span>
+              </div>
+              <ul className="space-y-3 text-gray-600 text-justify text-sm leading-relaxed font-medium">
+                <li>• Translated complex technical specifications into clear user benefits during computer hardware and CCTV product sales, to improve customer satisfaction ratings by 15% and drive monthly revenue.</li>
+                <li>• Managed inventory tracking and product monitoring protocols for over 200+ SKU items, to ensure optimal stock levels and eliminate inventory discrepancies.</li>
+                <li>• Executed cashier duties and generated accurate daily sales reports, to streamline retail financial tracking and achieve 100% accuracy in balancing the end-of-day ledger.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Education & Skills Grid */}
+      <section id="education" className="w-full py-24 px-6 md:px-12 bg-gray-900 text-white scroll-mt-24">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16">
+          
+          <div>
+            <h3 className="text-blue-400 font-bold uppercase tracking-widest mb-2 text-sm">Academics</h3>
+            <h4 className="text-4xl font-black tracking-tight mb-10 uppercase">Education</h4>
+            
+            <div className="space-y-8 border-l-2 border-gray-800 pl-6 ml-2">
+              <div className="relative">
+                <div className="absolute -left-[31px] top-1.5 w-3 h-3 rounded-full bg-blue-500 border-2 border-gray-900"></div>
+                <h5 className="text-xl font-bold">BS in Information Technology</h5>
+                <p className="text-blue-400 font-medium text-sm mb-1">Cavite State University - Imus Campus</p>
+                <p className="text-gray-400 text-xs font-bold mb-3">2021 - 2025</p>
+                <p className="text-gray-300 text-justify text-sm leading-relaxed mb-2"><span className="text-white font-bold">Capstone:</span> Arduino Smart Lock Security System for Computer Laboratory.</p>
+                <p className="text-gray-300 text-justify text-sm leading-relaxed"><span className="text-white font-bold">Leadership:</span> Senior Head Photographer (BITS), Documentation Committee (CSG & BITS).</p>
+              </div>
+              
+              <div className="relative">
+                <div className="absolute -left-[31px] top-1.5 w-3 h-3 rounded-full bg-blue-500 border-2 border-gray-900"></div>
+                <h5 className="text-xl font-bold">Senior High School - ICT</h5>
+                <p className="text-blue-400 font-medium text-sm mb-1">Informatics College Cavite</p>
+                <p className="text-gray-400 text-xs font-bold mb-3">2019 - 2021</p>
+                <p className="text-gray-300 text-justify text-sm leading-relaxed"><span className="text-white font-bold">Coursework:</span> Programming Strand | Software Development Fundamentals.</p>
+              </div>
+            </div>
+          </div>
+
+          <div id="skills" className="flex flex-col gap-12 scroll-mt-24">
+            <div>
+              <h3 className="text-blue-400 font-bold uppercase tracking-widest mb-2 text-sm">Capabilities</h3>
+              <h4 className="text-4xl font-black tracking-tight mb-8 uppercase">Core Skills</h4>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="bg-gray-800 p-6 rounded-xl border border-gray-700">
+                  <h5 className="text-base font-bold mb-3 flex items-center gap-2">
+                    <svg className="text-blue-500" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+                    Technical
+                  </h5>
+                  <p className="text-gray-400 text-justify text-xs leading-relaxed">
+                    Java, MySQL, PHP, VB.NET, VS CODE, Hardware/Software Diagnostics, Basic Networking, Creative Media Editing, MS Office Suite.
+                  </p>
+                </div>
+                <div className="bg-gray-800 p-6 rounded-xl border border-gray-700">
+                  <h5 className="text-base font-bold mb-3 flex items-center gap-2">
+                    <svg className="text-blue-500" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"></path><path d="M12 6v6l4 2"></path></svg>
+                    Professional
+                  </h5>
+                  <p className="text-gray-400 text-justify text-xs leading-relaxed">
+                    Task Prioritization, Time Management, Administrative Support.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <h4 className="text-xl font-black tracking-tight mb-6 uppercase">Certificates & Training</h4>
+              <ul className="space-y-3">
+                <li className="flex items-center gap-3 bg-gray-800 p-4 rounded-xl border border-gray-700">
+                   <div className="bg-blue-500/20 p-1.5 rounded text-blue-400 flex-shrink-0">
+                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                   </div>
+                   <p className="text-gray-300 text-xs font-semibold">Introduction to IoT and Digital Transformation</p>
+                </li>
+                <li className="flex items-center gap-3 bg-gray-800 p-4 rounded-xl border border-gray-700">
+                   <div className="bg-blue-500/20 p-1.5 rounded text-blue-400 flex-shrink-0">
+                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                   </div>
+                   <p className="text-gray-300 text-xs font-semibold">Accelerating Knowledge in Bacoor through AI (AKBAI)</p>
+                </li>
+                <li className="flex items-center gap-3 bg-gray-800 p-4 rounded-xl border border-gray-700">
+                   <div className="bg-blue-500/20 p-1.5 rounded text-blue-400 flex-shrink-0">
+                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                   </div>
+                   <p className="text-gray-300 text-xs font-semibold">The iStrike Program (Integrated Service Tracking)</p>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      {/* Photography Section */}
+      <section id="photography" className="w-full py-24 bg-white px-6 md:px-12 scroll-mt-24">
+        <div className="max-w-7xl mx-auto mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
+          <div>
+            <h3 className="text-blue-600 font-bold uppercase tracking-widest mb-2 text-sm">Portfolio</h3>
+            <h4 className="text-4xl font-black text-gray-900 tracking-tight uppercase">Photography</h4>
+          </div>
+          
+          {/* Gallery Category Tabs */}
+          <div className="flex bg-gray-100 p-1 rounded-xl border border-gray-200">
+            <button 
+              onClick={() => setActiveTab('personal')}
+              className={`px-5 py-2.5 rounded-lg text-xs font-bold uppercase tracking-wider transition-all ${activeTab === 'personal' ? 'bg-blue-600 text-white shadow-sm' : 'text-gray-500 hover:text-gray-900'}`}
+            >
+              Personal Work
+            </button>
+            <button 
+              onClick={() => setActiveTab('client')}
+              className={`px-5 py-2.5 rounded-lg text-xs font-bold uppercase tracking-wider transition-all ${activeTab === 'client' ? 'bg-blue-600 text-white shadow-sm' : 'text-gray-500 hover:text-gray-900'}`}
+            >
+              Client Projects
+            </button>
+          </div>
+        </div>
+        
+        {/* Gallery Grid */}
+        <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+          {currentGallery.map((photoObj, index) => {
+            // Check if it's a "Coming Soon" placeholder slot
+            if (photoObj.isComingSoon) {
+              return (
+                <div 
+                  key={`soon-${index}`} 
+                  className="aspect-square bg-gray-50 border-2 border-dashed border-gray-200 rounded-xl flex flex-col items-center justify-center p-4 text-center select-none"
+                >
+                  <svg className="text-gray-300 mb-2" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                  <span className="text-xs font-bold uppercase tracking-widest text-gray-400">Coming Soon</span>
+                </div>
+              );
+            }
+
+            return (
+              <div 
+                key={index} 
+                className="aspect-square overflow-hidden cursor-pointer group bg-gray-100 rounded-xl relative shadow-sm border border-gray-100"
+                onClick={() => setLightboxData(photoObj)}
+              >
+                <img 
+                  src={photoObj.src} 
+                  alt={`${activeTab} project slot ${index + 1}`} 
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-blue-900/0 group-hover:bg-blue-900/40 transition-colors duration-500 flex items-center justify-center">
+                  <svg className="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-500 scale-50 group-hover:scale-100 transform" xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </section>
+
+      {/* Lightbox Overlay - Split View */}
+      {lightboxData && (
+        <div 
+          className="fixed inset-0 bg-gray-950/98 backdrop-blur-md z-50 flex items-center justify-center p-4 md:p-8"
+          onClick={() => setLightboxData(null)}
+        >
+          {/* Close Button */}
+          <button 
+            className="absolute top-4 right-4 md:top-8 md:right-8 bg-white/10 hover:bg-white/20 text-white rounded-full p-2.5 transition-colors z-50"
+            onClick={() => setLightboxData(null)}
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+          </button>
+          
+          {/* Lightbox Container */}
+          <div 
+            className="bg-white rounded-2xl overflow-hidden shadow-2xl flex flex-col md:flex-row max-w-6xl w-full max-h-[90vh]"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Image Side (Left) */}
+            <div className="w-full md:w-2/3 bg-gray-100 flex items-center justify-center relative min-h-[300px]">
+              <img 
+                src={lightboxData.src} 
+                alt="Expanded project display frame" 
+                className="max-w-full max-h-[50vh] md:max-h-[90vh] object-contain"
+              />
+            </div>
+
+            {/* Description Side (Right) */}
+            <div className="w-full md:w-1/3 p-8 flex flex-col justify-center bg-gray-900 text-white overflow-y-auto">
+              {lightboxData.quote ? (
+                <>
+                  <h4 className="text-xl md:text-2xl font-black mb-6 tracking-tight text-blue-400 leading-snug">
+                    "{lightboxData.quote}"
+                  </h4>
+                  <div className="space-y-3 text-sm font-medium text-gray-300">
+                    <p><strong className="text-white">In Frame:</strong> {lightboxData.inFrame || "N/A"}</p>
+                    <p><strong className="text-white">Photo:</strong> {lightboxData.photoBy}</p>
+                    <p><strong className="text-white">Camera:</strong> {lightboxData.camera}</p>
+                    
+                    <div className="pt-6 mt-6 border-t border-gray-800">
+                      <strong className="block text-xs uppercase tracking-widest text-blue-500 mb-1">Event/Project Name</strong>
+                      <span className="text-white font-bold">{lightboxData.event}</span>
+                    </div>
+
+                    
+                  </div>
+                </>
+              ) : (
+                <div className="flex flex-col justify-center items-center h-full text-gray-500 text-sm">
+                  <p>No description provided for this shot.</p>
+                </div>
+              )}
+            </div>
+          </div>
+
+        </div>
+      )}
+
+      {/* Footer */}
+      <footer className="w-full bg-gray-50 border-t border-gray-200 py-16 text-center px-6">
+        <h2 className="text-3xl font-black tracking-tighter text-gray-900 mb-6 uppercase">
+          CLINTON MALICDON<span className="text-blue-600">.</span>
+        </h2>
+        <div className="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-6 text-gray-500 font-bold text-xs tracking-wider uppercase mb-8">
+          <span>09691809485</span>
+          <span className="hidden sm:inline text-gray-300">|</span>
+          <span>Cavite, Philippines</span>
+          <span className="hidden sm:inline text-gray-300">|</span>
+          <span className="lowercase font-semibold">clinton.malicdon0@gmail.com</span>
+        </div>
+        <p className="text-gray-400 text-xs font-medium">&copy; {new Date().getFullYear()} Clinton B. Malicdon. All rights reserved.</p>
+      </footer>
+
+    </div>
+  );
+};
+
+export default App;
