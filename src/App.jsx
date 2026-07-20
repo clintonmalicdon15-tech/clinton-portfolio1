@@ -83,7 +83,7 @@ const App = () => {
       photoBy: "Clinton Malicdon",
       camera: "Nikon | Kitlens 18-55mm",
       event: "Wedding",
-      facebookLink: "https://www.facebook.com/"
+      facebookLink: ""
     },
     {
       src: "/clinton-portfolio1/client2.jpg",
@@ -92,7 +92,7 @@ const App = () => {
       photoBy: "Clinton Malicdon",
       camera: "Nikon | Kitlens 18-55mm",
       event: "Project COS",
-      facebookLink: "https://www.facebook.com/"
+      facebookLink: ""
     },
     {
       src: "/clinton-portfolio1/client3.jpg",
@@ -101,7 +101,7 @@ const App = () => {
       photoBy: "Clinton Malicdon",
       camera: "Nikon | Kitlens 18-55mm",
       event: "Photo Essay",
-      facebookLink: "https://www.facebook.com/"
+      facebookLink: ""
     },
     {
       src: "/clinton-portfolio1/client4.jpg",
@@ -110,7 +110,7 @@ const App = () => {
       photoBy: "Clinton Malicdon",
       camera: "Nikon | Kitlens 18-55mm",
       event: "60th Birthday Celebration",
-      facebookLink: "https://www.facebook.com/"
+      facebookLink: ""
     },
     {
       src: "/clinton-portfolio1/client5.jpg",
@@ -119,7 +119,7 @@ const App = () => {
       photoBy: "Clinton Malicdon",
       camera: "Canon | 18-55mm",
       event: "18th Birthday Debut",
-      facebookLink: "https://www.facebook.com/"
+      facebookLink: ""
     },
     {
       src: "/clinton-portfolio1/client6.JPG",
@@ -128,7 +128,7 @@ const App = () => {
       photoBy: "Clinton Malicdon",
       camera: "Fujifilm X-A3 | ISO 320 | F/5.3",
       event: "Binyag",
-      facebookLink: "https://www.facebook.com/"
+      facebookLink: ""
     },
     {
       src: "/clinton-portfolio1/client7.jpg",
@@ -137,7 +137,7 @@ const App = () => {
       photoBy: "Clinton Malicdon",
       camera: "Canon | 18-55mm",
       event: "Binyag (Part II)",
-      facebookLink: "https://www.facebook.com/"
+      facebookLink: ""
     },
     {
       src: "/clinton-portfolio1/client8.png",
@@ -146,7 +146,7 @@ const App = () => {
       photoBy: "Clinton Malicdon",
       camera: "Canon | 18-55mm",
       event: "Sports Fest Tournament",
-      facebookLink: "https://www.facebook.com/"
+      facebookLink: ""
     },
     {
       src: "/clinton-portfolio1/client9.jpg",
@@ -155,7 +155,7 @@ const App = () => {
       photoBy: "Clinton Malicdon",
       camera: "Canon | 18-55mm",
       event: "18th Birthday",
-      facebookLink: "https://www.facebook.com/"
+      facebookLink: ""
     }
   ];
 
@@ -577,8 +577,8 @@ const App = () => {
             </button>
             
             {/* FIXED DISPLAY BOUNDS SO VERTICAL CLIPS PREVENT CROPPING */}
-            <div className="md:col-span-7 bg-black flex items-center justify-center relative min-h-[350px] md:min-h-[500px]">
-              <img src={lightboxData.src} alt="Expanded display frame mode" className="w-full h-full object-contain" />
+            <div className="md:col-span-7 flex items-center justify-center relative min-h-[350px] md:min-h-[500px]">
+              <img src={lightboxData.src} alt="Expanded display frame mode" className="w-full h-full object-cover" />
             </div>
             
             <div className="md:col-span-5 p-8 flex flex-col justify-center text-center bg-[#0d1527] border-t md:border-t-0 md:border-l border-slate-800 text-white overflow-y-auto">
