@@ -30,6 +30,7 @@ const App = () => {
     { name: 'Education', href: '#education' },
     { name: 'Skills', href: '#skills' },
     { name: 'Photography', href: '#photography' },
+    { name: 'Leadership', href: '#leadership' },
     { name: 'Projects', href: '#projects' },
   ];
 
@@ -225,10 +226,25 @@ const App = () => {
 
   const currentGallery = activeTab === 'personal' ? personalPhotos : clientPhotos;
 
+  const CameraIcon = () => (
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-gray-400 group-hover:text-blue-500 transition-colors">
+      <rect x="3" y="8" width="18" height="12" rx="2" ry="2"></rect>
+      <path d="M16 8v-2a2 2 0 0 0-2-2H10a2 2 0 0 0-2 2v2"></path>
+      <circle cx="12" cy="14" r="3"></circle>
+    </svg>
+  );
+
+  const VideoIcon = () => (
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-gray-400 group-hover:text-blue-500 transition-colors">
+      <polygon points="23 7 16 12 23 17 23 7"></polygon>
+      <rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect>
+    </svg>
+  );
+
   return (
     <div className="w-full min-h-screen bg-white text-gray-900 selection:bg-blue-600 selection:text-white antialiased">
       
-      {/* Top Real-Time Status Bar - Centered and Mobile Responsive */}
+      {/* Top Real-Time Status Bar */}
       <div className="fixed top-0 left-0 w-full bg-[#0b1120] border-b border-slate-800 text-white z-50 px-2 sm:px-6 md:px-12 h-8 flex justify-center items-center text-[10px] sm:text-xs font-medium tracking-wide">
         <div className="flex items-center gap-2 md:gap-4 w-full justify-center">
           {!isEventFinished && (
@@ -245,7 +261,6 @@ const App = () => {
             </div>
           )}
           
-          {/* Clock: Short format on mobile, full format on desktop */}
           <div className="flex items-center gap-1.5 text-slate-400 font-mono flex-shrink-0">
             <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
             <span className="hidden md:inline">{formattedDate} - {formattedTime}</span>
@@ -254,7 +269,7 @@ const App = () => {
         </div>
       </div>
 
-      {/* Sticky Modern Navbar (Fixed Height for exact mobile alignment) */}
+      {/* Sticky Modern Navbar */}
       <nav className="fixed top-8 left-0 w-full bg-white/95 backdrop-blur-md z-40 border-b border-gray-100 shadow-sm h-[72px]">
         <div className="w-full h-full max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center">
           <h1 className="text-xl sm:text-2xl font-black tracking-tighter text-gray-900 uppercase">
@@ -293,7 +308,7 @@ const App = () => {
         </div>
       </nav>
 
-      {/* Mobile Nav Dropdown - Flush precisely under the navbar (32px + 72px = 104px) */}
+      {/* Mobile Nav Dropdown */}
       {isMobileMenuOpen && (
         <div className="md:hidden fixed top-[104px] left-0 w-full bg-white shadow-xl z-30 flex flex-col px-6 py-4 border-t border-gray-100">
           {navLinks.map((link) => (
@@ -317,7 +332,7 @@ const App = () => {
       )}
 
       {/* Hero Section */}
-      <section id="home" className="w-full pt-40 pb-16 md:pt-48 md:pb-28 px-6 md:px-12 bg-white scroll-mt-32">
+      <section id="home" className="w-full pt-40 pb-16 md:pt-48 md:pb-28 px-6 md:px-12 bg-white scroll-mt-[104px]">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-12">
           <div className="w-full md:w-7/12 flex flex-col justify-center text-center md:text-left">
             <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-[1.1] tracking-tight text-gray-900 mb-6 uppercase">
@@ -349,7 +364,7 @@ const App = () => {
       </section>
 
       {/* About Me Section */}
-      <section id="about" className="w-full py-20 md:py-24 bg-gray-50 border-y border-gray-100 px-6 md:px-12 scroll-mt-24 md:scroll-mt-32">
+      <section id="about" className="w-full py-20 md:py-24 bg-gray-50 border-y border-gray-100 px-6 md:px-12 scroll-mt-[104px]">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-6 md:gap-12 items-start">
           <div className="w-full md:w-1/3">
             <h3 className="text-blue-600 font-bold uppercase tracking-widest mb-2 text-sm text-center md:text-left">Introduction</h3>
@@ -364,7 +379,7 @@ const App = () => {
       </section>
 
       {/* Work Experience */}
-      <section id="experience" className="w-full py-20 md:py-24 px-6 md:px-12 bg-white scroll-mt-24 md:scroll-mt-32">
+      <section id="experience" className="w-full py-20 md:py-24 px-6 md:px-12 bg-white scroll-mt-[104px]">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12 md:mb-16">
             <h3 className="text-blue-600 font-bold uppercase tracking-widest mb-2 text-sm">Professional Journey</h3>
@@ -372,7 +387,7 @@ const App = () => {
           </div>
           
           <div className="space-y-6 md:space-y-8">
-            <div className="bg-gray-50 p-6 sm:p-8 md:p-10 rounded-2xl border border-gray-100">
+            <div className="bg-gray-50 p-6 sm:p-8 md:p-10 rounded-2xl border border-gray-100 hover:shadow-lg transition-all duration-300">
               <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-6 gap-3 sm:gap-4">
                 <div>
                   <h4 className="text-xl sm:text-2xl font-bold text-gray-900">Technical Support</h4>
@@ -387,7 +402,7 @@ const App = () => {
               </ul>
             </div>
 
-            <div className="bg-gray-50 p-6 sm:p-8 md:p-10 rounded-2xl border border-gray-100">
+            <div className="bg-gray-50 p-6 sm:p-8 md:p-10 rounded-2xl border border-gray-100 hover:shadow-lg transition-all duration-300">
               <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-6 gap-3 sm:gap-4">
                 <div>
                   <h4 className="text-xl sm:text-2xl font-bold text-gray-900">Sales Technician</h4>
@@ -406,7 +421,7 @@ const App = () => {
       </section>
 
       {/* Education & Skills Grid */}
-      <section id="education" className="w-full py-20 md:py-24 px-6 md:px-12 bg-[#0b1120] text-white scroll-mt-24 md:scroll-mt-32">
+      <section id="education" className="w-full py-20 md:py-24 px-6 md:px-12 bg-[#0b1120] text-white scroll-mt-[104px]">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16">
           
           <div>
@@ -443,7 +458,7 @@ const App = () => {
             </div>
           </div>
 
-          <div id="skills" className="flex flex-col gap-12 scroll-mt-24 md:scroll-mt-32">
+          <div id="skills" className="flex flex-col gap-12 scroll-mt-[104px]">
             <div>
               <h3 className="text-blue-400 font-bold uppercase tracking-widest mb-2 text-sm text-center sm:text-left">Capabilities</h3>
               <h4 className="text-3xl md:text-4xl font-black tracking-tight mb-8 uppercase text-center sm:text-left">Core Skills</h4>
@@ -497,7 +512,7 @@ const App = () => {
       </section>
 
       {/* Photography Section */}
-      <section id="photography" className="w-full py-20 md:py-24 bg-white px-6 md:px-12 scroll-mt-24 md:scroll-mt-32">
+      <section id="photography" className="w-full py-20 md:py-24 bg-white px-6 md:px-12 scroll-mt-[104px]">
         <div className="max-w-7xl mx-auto mb-10 md:mb-12 flex flex-col items-center gap-6">
           <div className="text-center">
             <h3 className="text-blue-600 font-bold uppercase tracking-widest mb-2 text-sm">Portfolio</h3>
@@ -554,8 +569,159 @@ const App = () => {
         </div>
       </section>
 
+      {/* Leadership & Event Coverage Timeline - Uniform Sizing & Refined Weight */}
+      <section id="leadership" className="w-full py-20 md:py-24 bg-gray-50 border-t border-gray-100 px-6 md:px-12 scroll-mt-[104px]">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h3 className="text-blue-600 font-bold uppercase tracking-widest mb-2 text-sm">Event Coverage</h3>
+            <h4 className="text-3xl md:text-4xl font-black text-gray-900 tracking-tight uppercase">Media & Leadership</h4>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
+            
+            {/* BITS 2022-2023 Card */}
+            <div className="bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 relative overflow-hidden flex flex-col group text-left">
+              <div className="absolute top-0 left-0 w-full h-1.5 bg-gray-800 group-hover:bg-blue-600 transition-colors duration-300"></div>
+              <div className="p-8 flex-1">
+                <h5 className="text-xl font-black text-gray-900 uppercase tracking-widest mb-8">
+                  BITS 2022-2023
+                </h5>
+                
+                <div className="mb-8">
+                  <div className="flex items-center gap-3 mb-5 border-b border-gray-100 pb-3 group">
+                    <CameraIcon />
+                    <span className="text-xs font-bold text-gray-400 uppercase tracking-wider group-hover:text-gray-600 transition-colors">Photographer</span>
+                  </div>
+                  <ul className="space-y-4">
+                    <li className="flex items-center gap-3 bg-gray-50/80 hover:bg-blue-50/60 p-3 rounded-xl transition-all border border-gray-100">
+                      <span className="text-[10px] font-bold text-white bg-slate-800 px-2.5 py-1 rounded-md uppercase tracking-wider shrink-0 shadow-sm">Nov '22</span>
+                      <span className="text-xs sm:text-sm font-semibold text-gray-800 tracking-wide">Sportfest</span>
+                    </li>
+                    <li className="flex items-center gap-3 bg-gray-50/80 hover:bg-blue-50/60 p-3 rounded-xl transition-all border border-gray-100">
+                      <span className="text-[10px] font-bold text-white bg-slate-800 px-2.5 py-1 rounded-md uppercase tracking-wider shrink-0 shadow-sm">Dec '22</span>
+                      <span className="text-xs sm:text-sm font-semibold text-gray-800 tracking-wide">Techfair</span>
+                    </li>
+                    <li className="flex items-center gap-3 bg-gray-50/80 hover:bg-blue-50/60 p-3 rounded-xl transition-all border border-gray-100">
+                      <span className="text-[10px] font-bold text-white bg-slate-800 px-2.5 py-1 rounded-md uppercase tracking-wider shrink-0 shadow-sm">May '23</span>
+                      <span className="text-xs sm:text-sm font-semibold text-gray-800 tracking-wide">LCAF</span>
+                    </li>
+                    <li className="flex items-center gap-3 bg-gray-50/80 hover:bg-blue-50/60 p-3 rounded-xl transition-all border border-gray-100">
+                      <span className="text-[10px] font-bold text-white bg-gray-500 px-2.5 py-1 rounded-md uppercase tracking-wider shrink-0 shadow-sm">Year</span>
+                      <span className="text-xs sm:text-sm font-semibold text-gray-800 tracking-wide">BITS Events</span>
+                    </li>
+                  </ul>
+                </div>
+                
+                <div>
+                  <div className="flex items-center gap-3 mb-5 border-b border-gray-100 pb-3 group">
+                    <VideoIcon />
+                    <span className="text-xs font-bold text-gray-400 uppercase tracking-wider group-hover:text-gray-600 transition-colors">Videographer</span>
+                  </div>
+                  <ul className="space-y-4">
+                    <li className="flex items-center gap-3 bg-gray-50/80 hover:bg-blue-50/60 p-3 rounded-xl transition-all border border-gray-100">
+                      <span className="text-[10px] font-bold text-white bg-slate-800 px-2.5 py-1 rounded-md uppercase tracking-wider shrink-0 shadow-sm">Jun '23</span>
+                      <span className="text-xs sm:text-sm font-semibold text-gray-800 tracking-wide">BITS X The Flare</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            {/* CSG 2023-2024 Card */}
+            <div className="bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 relative overflow-hidden flex flex-col group text-left">
+              <div className="absolute top-0 left-0 w-full h-1.5 bg-gray-800 group-hover:bg-emerald-500 transition-colors duration-300"></div>
+              <div className="p-8 flex-1">
+                <h5 className="text-xl font-black text-gray-900 uppercase tracking-widest mb-8">
+                  CSG 2023-2024
+                </h5>
+                
+                <div className="mb-8">
+                  <div className="flex items-center gap-3 mb-5 border-b border-gray-100 pb-3 group">
+                    <CameraIcon />
+                    <span className="text-xs font-bold text-gray-400 uppercase tracking-wider group-hover:text-gray-600 transition-colors">Photographer</span>
+                  </div>
+                  <ul className="space-y-4">
+                    <li className="flex items-center gap-3 bg-gray-50/80 hover:bg-emerald-50/60 p-3 rounded-xl transition-all border border-gray-100">
+                      <span className="text-[10px] font-bold text-white bg-slate-800 px-2.5 py-1 rounded-md uppercase tracking-wider shrink-0 shadow-sm">Sep '23</span>
+                      <span className="text-xs sm:text-sm font-semibold text-gray-800 tracking-wide">Student Orientation | CSG Flag Ceremony</span>
+                    </li>
+                    <li className="flex items-center gap-3 bg-gray-50/80 hover:bg-emerald-50/60 p-3 rounded-xl transition-all border border-gray-100">
+                      <span className="text-[10px] font-bold text-white bg-slate-800 px-2.5 py-1 rounded-md uppercase tracking-wider shrink-0 shadow-sm">Oct '23</span>
+                      <span className="text-xs sm:text-sm font-semibold text-gray-800 tracking-wide">Student Leader Recognition | Sociocultural & SLTP</span>
+                    </li>
+                    <li className="flex items-center gap-3 bg-gray-50/80 hover:bg-emerald-50/60 p-3 rounded-xl transition-all border border-gray-100">
+                      <span className="text-[10px] font-bold text-white bg-slate-800 px-2.5 py-1 rounded-md uppercase tracking-wider shrink-0 shadow-sm">Nov '23</span>
+                      <span className="text-xs sm:text-sm font-semibold text-gray-800 tracking-wide">Foundation Week | Battle of the Bands & BITS Collab</span>
+                    </li>
+                    <li className="flex items-center gap-3 bg-gray-50/80 hover:bg-emerald-50/60 p-3 rounded-xl transition-all border border-gray-100">
+                      <span className="text-[10px] font-bold text-white bg-slate-800 px-2.5 py-1 rounded-md uppercase tracking-wider shrink-0 shadow-sm">Dec '23</span>
+                      <span className="text-xs sm:text-sm font-semibold text-gray-800 tracking-wide">CS Advance, Pamana, Phaseout & Paskuhan</span>
+                    </li>
+                    <li className="flex items-center gap-3 bg-gray-50/80 hover:bg-emerald-50/60 p-3 rounded-xl transition-all border border-gray-100">
+                      <span className="text-[10px] font-bold text-white bg-slate-800 px-2.5 py-1 rounded-md uppercase tracking-wider shrink-0 shadow-sm">Jan '24</span>
+                      <span className="text-xs sm:text-sm font-semibold text-gray-800 tracking-wide">LCAF, Culminating & Juls Birthday Photoshoot</span>
+                    </li>
+                    <li className="flex items-center gap-3 bg-gray-50/80 hover:bg-emerald-50/60 p-3 rounded-xl transition-all border border-gray-100">
+                      <span className="text-[10px] font-bold text-white bg-slate-800 px-2.5 py-1 rounded-md uppercase tracking-wider shrink-0 shadow-sm">May '24</span>
+                      <span className="text-xs sm:text-sm font-semibold text-gray-800 tracking-wide">CSG X CAF Indang Collab</span>
+                    </li>
+                  </ul>
+                </div>
+
+                <div>
+                  <div className="flex items-center gap-3 mb-5 border-b border-gray-100 pb-3 group">
+                    <div className="flex -space-x-1.5">
+                       <CameraIcon />
+                       <VideoIcon />
+                    </div>
+                    <span className="text-xs font-bold text-gray-400 uppercase tracking-wider group-hover:text-gray-600 transition-colors ml-1">Photo & Video</span>
+                  </div>
+                  <ul className="space-y-4">
+                    <li className="flex items-center gap-3 bg-gray-50/80 hover:bg-emerald-50/60 p-3 rounded-xl transition-all border border-gray-100">
+                      <span className="text-[10px] font-bold text-white bg-slate-800 px-2.5 py-1 rounded-md uppercase tracking-wider shrink-0 shadow-sm">Oct '23</span>
+                      <span className="text-xs sm:text-sm font-semibold text-gray-800 tracking-wide">CSG X The Flare Collab</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            {/* BITS 2024-2025 Card */}
+            <div className="bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 relative overflow-hidden flex flex-col group text-left">
+              <div className="absolute top-0 left-0 w-full h-1.5 bg-gray-800 group-hover:bg-indigo-500 transition-colors duration-300"></div>
+              <div className="p-8">
+                <h5 className="text-xl font-black text-gray-900 uppercase tracking-widest mb-8">
+                  BITS 2024-2025
+                </h5>
+                
+                <div>
+                  <div className="flex items-center gap-3 mb-5 border-b border-gray-100 pb-3 group">
+                    <div className="flex -space-x-1.5">
+                       <CameraIcon />
+                       <VideoIcon />
+                    </div>
+                    <span className="text-xs font-bold text-gray-400 uppercase tracking-wider group-hover:text-gray-600 transition-colors ml-1">Photo & Video</span>
+                  </div>
+                  <ul className="space-y-4">
+                    <li className="flex items-center gap-3 bg-gray-50/80 hover:bg-indigo-50/60 p-3 rounded-xl transition-all border border-gray-100">
+                      <span className="text-[10px] font-bold text-white bg-slate-800 px-2.5 py-1 rounded-md uppercase tracking-wider shrink-0 shadow-sm">Apr '25</span>
+                      <span className="text-xs sm:text-sm font-semibold text-gray-800 tracking-wide">BITS x CSG Collab</span>
+                    </li>
+                    <li className="flex items-center gap-3 bg-gray-50/80 hover:bg-indigo-50/60 p-3 rounded-xl transition-all border border-gray-100">
+                      <span className="text-[10px] font-bold text-white bg-slate-800 px-2.5 py-1 rounded-md uppercase tracking-wider shrink-0 shadow-sm">May '25</span>
+                      <span className="text-xs sm:text-sm font-semibold text-gray-800 tracking-wide">LCAF Photographer and Videographer</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
       {/* Development Projects Section */}
-      <section id="projects" className="w-full py-20 md:py-24 bg-gray-50 border-t border-gray-100 px-6 md:px-12 scroll-mt-24 md:scroll-mt-32">
+      <section id="projects" className="w-full py-20 md:py-24 bg-white border-t border-gray-100 px-6 md:px-12 scroll-mt-[104px]">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-10 md:mb-12">
             <h3 className="text-blue-600 font-bold uppercase tracking-widest mb-2 text-sm">Development & Coding</h3>
@@ -566,7 +732,7 @@ const App = () => {
             {projectsData.map((project, index) => (
               <div 
                 key={index} 
-                className="bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden cursor-pointer group flex flex-col"
+                className="bg-gray-50 rounded-2xl shadow-sm border border-gray-200 overflow-hidden cursor-pointer group flex flex-col"
                 onClick={() => setLightboxData(project)}
               >
                 <div className="aspect-[16/9] relative overflow-hidden bg-gray-100">
@@ -602,7 +768,7 @@ const App = () => {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="w-full py-20 md:py-24 bg-[#1e1b4b] text-white px-6 md:px-12 scroll-mt-24 md:scroll-mt-32">
+      <section id="contact" className="w-full py-20 md:py-24 bg-[#1e1b4b] text-white px-6 md:px-12 scroll-mt-[104px]">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12 md:mb-16">
             <h3 className="text-3xl md:text-5xl font-black tracking-tight mb-2 md:mb-3">Contact Me</h3>
@@ -666,7 +832,6 @@ const App = () => {
             
             <div className="bg-[#2a2656] p-6 md:p-10 rounded-3xl shadow-xl border border-white/5 flex flex-col justify-between">
               
-              {/* Working Contact Form */}
               <form action="https://formsubmit.co/clinton.malicdon0@gmail.com" method="POST" className="space-y-4 md:space-y-6">
                 
                 <input type="hidden" name="_subject" value="New message from Portfolio!" />
@@ -674,23 +839,23 @@ const App = () => {
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
                   <div>
-                    <label className="block text-xs font-semibold text-indigo-200 mb-1.5 md:mb-2">Your Name</label>
-                    <input type="text" name="name" required placeholder="Full name" className="w-full bg-[#1e1b4b]/50 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-indigo-400 transition-colors placeholder:text-indigo-200/40" />
+                    <label htmlFor="name-input" className="block text-xs font-semibold text-indigo-200 mb-1.5 md:mb-2">Your Name</label>
+                    <input id="name-input" type="text" name="name" required autoComplete="name" placeholder="Full name" className="w-full bg-[#1e1b4b]/50 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-indigo-400 transition-colors placeholder:text-indigo-200/40" />
                   </div>
                   <div>
-                    <label className="block text-xs font-semibold text-indigo-200 mb-1.5 md:mb-2">Your Email</label>
-                    <input type="email" name="email" required placeholder="name@email.com" className="w-full bg-[#1e1b4b]/50 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-indigo-400 transition-colors placeholder:text-indigo-200/40" />
+                    <label htmlFor="email-input" className="block text-xs font-semibold text-indigo-200 mb-1.5 md:mb-2">Your Email</label>
+                    <input id="email-input" type="email" name="email" required autoComplete="email" placeholder="name@email.com" className="w-full bg-[#1e1b4b]/50 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-indigo-400 transition-colors placeholder:text-indigo-200/40" />
                   </div>
                 </div>
                 
                 <div>
-                  <label className="block text-xs font-semibold text-indigo-200 mb-1.5 md:mb-2">Subject</label>
-                  <input type="text" name="subject" placeholder="Project inquiry" className="w-full bg-[#1e1b4b]/50 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-indigo-400 transition-colors placeholder:text-indigo-200/40" />
+                  <label htmlFor="subject-input" className="block text-xs font-semibold text-indigo-200 mb-1.5 md:mb-2">Subject</label>
+                  <input id="subject-input" type="text" name="subject" autoComplete="off" placeholder="Project inquiry" className="w-full bg-[#1e1b4b]/50 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-indigo-400 transition-colors placeholder:text-indigo-200/40" />
                 </div>
                 
                 <div>
-                  <label className="block text-xs font-semibold text-indigo-200 mb-1.5 md:mb-2">Message</label>
-                  <textarea name="message" required rows="5" placeholder="Write your message..." className="w-full bg-[#1e1b4b]/50 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-indigo-400 transition-colors resize-none placeholder:text-indigo-200/40"></textarea>
+                  <label htmlFor="message-input" className="block text-xs font-semibold text-indigo-200 mb-1.5 md:mb-2">Message</label>
+                  <textarea id="message-input" name="message" required rows="5" placeholder="Write your message..." className="w-full bg-[#1e1b4b]/50 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-indigo-400 transition-colors resize-none placeholder:text-indigo-200/40"></textarea>
                 </div>
                 
                 <button type="submit" className="w-full bg-gradient-to-r from-violet-500 to-fuchsia-500 hover:from-violet-600 hover:to-fuchsia-600 text-white font-bold py-3.5 md:py-4 rounded-xl transition-all transform hover:scale-[1.02] shadow-lg text-sm md:text-base">
@@ -718,7 +883,6 @@ const App = () => {
                 className={`w-full h-full object-cover ${lightboxData.isLocked ? 'blur-xl scale-110' : ''}`} 
               />
               
-              {/* Overlay if the item is locked inside the lightbox */}
               {lightboxData.isLocked && (
                 <div className="absolute inset-0 bg-black/40 flex flex-col items-center justify-center z-20">
                   <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" className="md:w-12 md:h-12" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
@@ -729,7 +893,6 @@ const App = () => {
             
             <div className="md:col-span-5 p-6 md:p-8 flex flex-col justify-center text-center bg-[#0d1527] border-t md:border-t-0 md:border-l border-slate-800 text-white overflow-y-auto max-h-[50vh] md:max-h-full">
               
-              {/* Conditional Rendering: If it's a IT/Dev Project */}
               {lightboxData.type === 'project' && (
                 <>
                   <h4 className="text-xl md:text-2xl font-black mb-3 md:mb-4 tracking-wide text-white uppercase leading-snug">{lightboxData.title}</h4>
@@ -753,7 +916,6 @@ const App = () => {
                 </>
               )}
 
-              {/* Conditional Rendering: If it's a Photo */}
               {lightboxData.type === 'photo' && (
                 <>
                   <h4 className="text-base md:text-xl font-black mb-4 md:mb-6 tracking-wide text-blue-400 uppercase leading-snug">"{lightboxData.quote}"</h4>
